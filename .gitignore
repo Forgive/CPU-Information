@@ -1,0 +1,8 @@
+*.o
+moc_*
+Debug/
+CPU-Information/Debug
+CPU-Information.sdf
+CPU-Information.opensdf
+GPU-Information.v11.suo
+CPU-Information/Debug
