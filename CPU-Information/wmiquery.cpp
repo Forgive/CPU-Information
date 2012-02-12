@@ -3,7 +3,7 @@
 Author: Forgive
 Website: www.github.com/Forgive
 Creation Date: 11 - 02 - 2012 (16:14) (By: Forgive)
-Last Update: 11 - 02 - 12 (16:17) (By: Forgive)
+Last Update: 11 - 02 - 12 (21:00) (By: Forgive)
 
 This is the code to retrieve some data using WMI (Windows Management Instrumentation). 
 
@@ -11,6 +11,10 @@ This is the code to retrieve some data using WMI (Windows Management Instrumenta
 #include "wmiquery.h"
 
 WMIQuery::WMIQuery() {
+	initialize();
+}
+
+void WMIQuery::initialize() {
 	result = CoInitializeEx(0, COINIT_MULTITHREADED);
 	result = CoInitializeSecurity(NULL, -1, NULL, NULL, RPC_C_AUTHN_LEVEL_DEFAULT, RPC_C_IMP_LEVEL_IMPERSONATE, NULL, EOAC_NONE, NULL);
 	locator = NULL;
@@ -33,4 +37,12 @@ VARIANT WMIQuery::requestData(const char* WMIClass, LPCWSTR dataName) {
 		return returnVariant;
 	}
 	return returnVariant;
+}
+
+void WMIQuery::clearData() {
+	services->Release();
+	locator->Release();
+	enumerator->Release();
+	object->Release();
+	CoUninitialize();
 }

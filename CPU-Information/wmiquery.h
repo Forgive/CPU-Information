@@ -3,7 +3,7 @@
 Author: Forgive
 Website: www.github.com/Forgive
 Creation Date: 11 - 02 - 2012 (16:14) (By: Forgive)
-Last Update: 11 - 02 - 12 (16:15) (By: Forgive)
+Last Update: 11 - 02 - 12 (20:29) (By: Forgive)
 
 This is the code to retrieve some data using WMI (Windows Management Instrumentation). 
 
@@ -17,7 +17,9 @@ This is the code to retrieve some data using WMI (Windows Management Instrumenta
 class WMIQuery {
 public:
 	WMIQuery();
+	void initialize();
 	VARIANT requestData(const char* WMIClass, const LPCWSTR dataName);
+	void clearData();
 
 private:
 	HRESULT result;
